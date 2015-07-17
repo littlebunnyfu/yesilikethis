@@ -17,13 +17,8 @@ void setup() {
 }
 
 void loop() {
-
-    
-    rainbow(12);
-    
+  rainbow(12);    
   delay(10);
-
-
 }
 
 // https://codebender.cc/sketch:85796
@@ -36,7 +31,7 @@ void rainbow(uint8_t wait) {
     for(ledNum=0; ledNum<8; ledNum++) {
       // color = Wheel((ledNum+j) & 255);
       wheelPos = (ledNum+j) & 255; // wtf is 255 doing here?
-      strip.setPixelColor( ledNum, Wheel(   wheelPos) );
+      strip.setPixelColor( ledNum, Wheel( wheelPos) );
     }
     strip.show();
     delay(wait);
