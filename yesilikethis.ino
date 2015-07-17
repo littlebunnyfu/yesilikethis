@@ -4,7 +4,7 @@
 // constants won't change. They're used here to 
 // set pin numbers:
 const int ledPin = 1;     // the number of the neopixel strip
-const int numLeds = 4;
+const int numLeds = 8;
 
 //Adafruit_NeoPixel pixels = Adafruit_NeoPixel(8, ledPin);
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(numLeds, ledPin, NEO_GRB + NEO_KHZ800);
@@ -19,7 +19,7 @@ void setup() {
 void loop() {
 
     
-    rainbow(3);
+    rainbow(12);
     
   delay(10);
 
