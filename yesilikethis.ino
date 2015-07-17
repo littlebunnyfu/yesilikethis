@@ -29,7 +29,7 @@ void rainbow(uint8_t wait) {
   uint32_t color;
 
   for(j=0; j<256; j++) {
-    color = colorTwiddler(  j & 255 ); // wtf is 255 doing here?
+    color = colorTwiddler( j ); // wtf is 255 doing here?
     lightLeds(color);
     delay(wait);
   }
@@ -49,8 +49,9 @@ void lightLeds(uint32_t color) {
 // Return color based on Wheel Position
 // j=color wheel??
 
-uint32_t colorTwiddler(uint16_t WheelPos) {
-  uint16_t offset, twiddleFactor;
+uint32_t colorTwiddler(uint16_t theWheelPos) {
+  uint16_t WheelPos, offset, twiddleFactor;
+  WheelPos = theWheelPos & 255;
   offset = WheelPos * 3;
 
   twiddleFactor = 0;
