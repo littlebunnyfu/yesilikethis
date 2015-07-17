@@ -25,13 +25,14 @@ void loop() {
 
 
 void rainbow(uint8_t wait) {
-  uint16_t ledNum, color, wheelPos, j;
+  uint16_t ledNum, wheelPos, j;
+  uint32_t color;
 
   for(j=0; j<256; j++) {
     for(ledNum=0; ledNum<8; ledNum++) {
       wheelPos = (ledNum+j) & 255; // wtf is 255 doing here?
-      //color = Wheel( wheelPos );
-      strip.setPixelColor( ledNum, Wheel( wheelPos) );
+      color = Wheel( wheelPos );
+      strip.setPixelColor( ledNum, color );
       strip.show();
     }
     delay(wait);
