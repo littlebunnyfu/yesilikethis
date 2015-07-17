@@ -31,14 +31,18 @@ void rainbow(uint8_t wait) {
   for(j=0; j<256; j++) {
     wheelPos = j & 255; // wtf is 255 doing here?
     color = Wheel( wheelPos );
-    for(ledNum=0; ledNum<8; ledNum++) {     
-      strip.setPixelColor( ledNum, color );
-      strip.show();
-    }
+    lightLeds(color);
     delay(wait);
   }
 }
 
+void lightLeds(uint32_t color) {
+    uint16_t ledNum;
+    for(ledNum=0; ledNum<8; ledNum++) {     
+      strip.setPixelColor( ledNum, color );
+      strip.show();
+    }  
+}
 
 
 // Input a value 0 to 255 to get a color value.
