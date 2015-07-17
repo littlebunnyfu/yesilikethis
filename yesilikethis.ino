@@ -52,15 +52,15 @@ uint32_t Wheel(uint16_t WheelPos) {
   twiddleFactor = 0;
   
   if(WheelPos < 85) {
-    return strip.Color(offset, 255 - offset, twiddleFactor);
+    return Adafruit_NeoPixel::Color(offset, 255 - offset, twiddleFactor);
   } 
   else if(WheelPos < 170) {
     WheelPos -= 85;
-    return strip.Color(255 - offset, twiddleFactor, offset);
+    return Adafruit_NeoPixel::Color(255 - offset, twiddleFactor, offset);
   } 
   else {
     WheelPos -= 170;
-    return strip.Color(twiddleFactor, offset, 255 - offset);
+    return Adafruit_NeoPixel::Color(twiddleFactor, offset, 255 - offset);
   }
 }
 
