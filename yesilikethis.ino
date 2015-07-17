@@ -17,7 +17,7 @@ void setup() {
 }
 
 void loop() {
-  rainbow(1);    
+  rainbow(5);    
   delay(10);
 }
 
@@ -46,18 +46,21 @@ void rainbow(uint8_t wait) {
 // j=color wheel??
 
 uint32_t Wheel(uint16_t WheelPos) {
-  uint16_t offset;
+  uint16_t offset, twiddleFactor;
   offset = WheelPos * 3;
+
+  twiddleFactor = 0;
+  
   if(WheelPos < 85) {
-    return strip.Color(offset, 255 - offset, 0);
+    return strip.Color(offset, 255 - offset, twiddleFactor);
   } 
   else if(WheelPos < 170) {
     WheelPos -= 85;
-    return strip.Color(255 - offset, 0, offset);
+    return strip.Color(255 - offset, twiddleFactor, offset);
   } 
   else {
     WheelPos -= 170;
-    return strip.Color(0, offset, 255 - offset);
+    return strip.Color(twiddleFactor, offset, 255 - offset);
   }
 }
 
