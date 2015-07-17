@@ -25,7 +25,7 @@ void loop() {
 
 
 void rainbow(uint8_t wait) {
-  uint16_t ledNum, wheelPos, j;
+  uint16_t wheelPos, j;
   uint32_t color;
 
   for(j=0; j<256; j++) {
@@ -35,10 +35,12 @@ void rainbow(uint8_t wait) {
   }
 }
 
+// next thing to do is change lightleds to take an array of tuples like [(1,red), (3,green)] -- which would reset two of the lights and leave the others unchanged
+// research project, how do we do this in c?
 void lightLeds(uint32_t color) {
-    uint16_t ledNum;
-    for(ledNum=0; ledNum<8; ledNum++) {     
-      strip.setPixelColor( ledNum, color );
+    uint16_t pixel;
+    for(pixel=0; pixel<8; pixel++) {     
+      strip.setPixelColor( pixel, color );
       strip.show();
     }  
 }
