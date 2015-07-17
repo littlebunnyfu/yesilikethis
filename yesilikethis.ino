@@ -17,7 +17,7 @@ void setup() {
 }
 
 void loop() {
-  rainbow(12);    
+  rainbow(1);    
   delay(10);
 }
 
@@ -32,8 +32,8 @@ void rainbow(uint8_t wait) {
       // color = Wheel((ledNum+j) & 255);
       wheelPos = (ledNum+j) & 255; // wtf is 255 doing here?
       strip.setPixelColor( ledNum, Wheel( wheelPos) );
+      strip.show();
     }
-    strip.show();
     delay(wait);
   }
 }
