@@ -35,7 +35,7 @@ void rainbow(uint8_t wait) {
   for(j=0; j<256; j++) {
     for(ledNum=0; ledNum<8; ledNum++) {
       // color = Wheel((ledNum+j) & 255);
-      wheelPos = (ledNum+j) & 255;
+      wheelPos = (ledNum+j) & 255; // wtf is 255 doing here?
       strip.setPixelColor( ledNum, Wheel(   wheelPos) );
     }
     strip.show();
@@ -50,7 +50,7 @@ void rainbow(uint8_t wait) {
 // Return color based on Wheel Position
 // j=color wheel??
 
-uint32_t Wheel(byte WheelPos) {
+uint32_t Wheel(uint16_t WheelPos) {
   if(WheelPos < 85) {
     return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
   } 
