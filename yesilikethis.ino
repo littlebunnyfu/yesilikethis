@@ -26,21 +26,21 @@ void loop() {
 
 }
 
+// https://codebender.cc/sketch:85796
+
 
 void rainbow(uint8_t wait) {
-  uint16_t pixelNum, j, wheelPos, color;
+  uint16_t pixelNum, j;
 
   for(j=0; j<256; j++) {
-    for(pixelNum=0; pixelNum < strip.numPixels(); pixelNum++) {
-      wheelPos=(pixelNum*1+j) & 255;
-      color=Wheel(wheelPos);
-      strip.setPixelColor(pixelNum,color );
-      
+    for(pixelNum=0; pixelNum<strip.numPixels(); pixelNum++) {
+      strip.setPixelColor(pixelNum, Wheel((pixelNum*1+j) & 255));
     }
     strip.show();
     delay(wait);
   }
 }
+
 
 
 // Input a value 0 to 255 to get a color value.
