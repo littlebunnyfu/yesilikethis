@@ -29,8 +29,7 @@ void rainbow(uint8_t wait) {
   uint32_t color;
 
   for(j=0; j<256; j++) {
-    wheelPos = j & 255; // wtf is 255 doing here?
-    color = Wheel( wheelPos );
+    color = Wheel(  j & 255 ); // wtf is 255 doing here?
     lightLeds(color);
     delay(wait);
   }
