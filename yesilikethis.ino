@@ -29,9 +29,9 @@ void rainbow(uint8_t wait) {
   uint32_t color;
 
   for(j=0; j<256; j++) {
-    for(ledNum=0; ledNum<8; ledNum++) {
-      wheelPos = j & 255; // wtf is 255 doing here?
-      color = Wheel( wheelPos );
+    wheelPos = j & 255; // wtf is 255 doing here?
+    color = Wheel( wheelPos );
+    for(ledNum=0; ledNum<8; ledNum++) {     
       strip.setPixelColor( ledNum, color );
       strip.show();
     }
