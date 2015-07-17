@@ -30,7 +30,7 @@ void rainbow(uint8_t wait) {
 
   for(j=0; j<256; j++) {
     for(ledNum=0; ledNum<8; ledNum++) {
-      wheelPos = (ledNum+j) & 255; // wtf is 255 doing here?
+      wheelPos = j & 255; // wtf is 255 doing here?
       color = Wheel( wheelPos );
       strip.setPixelColor( ledNum, color );
       strip.show();
