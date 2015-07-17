@@ -30,11 +30,13 @@ void loop() {
 
 
 void rainbow(uint8_t wait) {
-  uint16_t ledNum, j;
+  uint16_t ledNum, color, wheelPos, j;
 
   for(j=0; j<256; j++) {
     for(ledNum=0; ledNum<8; ledNum++) {
-      strip.setPixelColor(ledNum, Wheel((ledNum+j) & 255));
+      // color = Wheel((ledNum+j) & 255);
+      wheelPos = (ledNum+j) & 255;
+      strip.setPixelColor( ledNum, Wheel(   wheelPos) );
     }
     strip.show();
     delay(wait);
