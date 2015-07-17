@@ -17,29 +17,30 @@ void setup() {
 }
 
 void loop() {
-  rainbow(5);    
+  rainbow(5, numLeds);    
   delay(10);
 }
 
 // https://codebender.cc/sketch:85796
 
 
-void rainbow(uint8_t wait) {
+void rainbow(uint8_t wait, int numPixels) {
   uint16_t wheelPos, j;
   uint32_t color;
 
   for(j=0; j<256; j++) {
     color = colorTwiddler( j ); 
-    lightLeds(color);
+    setPixelColors(color, numPixels);
     delay(wait);
   }
 }
 
 // next thing to do is change lightleds to take an array of tuples like [(1,red), (3,green)] -- which would reset two of the lights and leave the others unchanged
 // research project, how do we do this in c?
-void lightLeds(uint32_t color) {
+// this would be a candidate for being a library function
+void setPixelColors(uint32_t color, int numPixels) {
     uint16_t pixel;
-    for(pixel=0; pixel<8; pixel++) {     
+    for(pixel=0; pixel < numPixels; pixel++) {     
       strip.setPixelColor( pixel, color );
       strip.show();
     }  
