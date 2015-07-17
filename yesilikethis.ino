@@ -46,16 +46,18 @@ void rainbow(uint8_t wait) {
 // j=color wheel??
 
 uint32_t Wheel(uint16_t WheelPos) {
+  uint16_t offset;
+  offset = WheelPos * 3;
   if(WheelPos < 85) {
-    return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+    return strip.Color(offset, 255 - offset, 0);
   } 
   else if(WheelPos < 170) {
     WheelPos -= 85;
-    return strip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+    return strip.Color(255 - offset, 0, offset);
   } 
   else {
     WheelPos -= 170;
-    return strip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+    return strip.Color(0, offset, 255 - offset);
   }
 }
 
